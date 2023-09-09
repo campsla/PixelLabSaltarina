@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/moneda_plataybronce.wav-0bbe242632e5955880f37d8ada3ce610.sample"
+
+[deps]
+
+source_file="res://Recursos/sfx/moneda_plataybronce.wav"
+dest_files=[ "res://.import/moneda_plataybronce.wav-0bbe242632e5955880f37d8ada3ce610.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

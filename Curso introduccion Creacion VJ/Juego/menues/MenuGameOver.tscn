@@ -1,0 +1,107 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Recursos/jumperpack_kenney/PNG/Players/bunny2_hurt.png" type="Texture" id=1]
+[ext_resource path="res://Juego/menues/Botones/BtnSalir.gd" type="Script" id=2]
+[ext_resource path="res://Recursos/kenney_fontpackage/Fonts/Kenney Mini Square Mono.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Juego/menues/Botones/BtnMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Juego/menues/Botones/BtnSalir.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Recursos/botones/BtnSalir.tres" type="StyleBox" id=6]
+[ext_resource path="res://Juego/menues/MenuGameOver.gd" type="Script" id=7]
+[ext_resource path="res://Recursos/kenney_fontpackage/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0823529, 0.403922, 0.407843, 1 )
+border_width_bottom = 6
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.372549, 0.407843, 0.0823529, 1 )
+border_width_bottom = 6
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
+[node name="MenuGameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.82843
+margin_top = -4.24261
+margin_right = -2.82837
+margin_bottom = -4.24261
+color = Color( 0.172549, 0.0431373, 0.192157, 1 )
+
+[node name="bunny2_hurt" type="Sprite" parent="."]
+position = Vector2( 327.322, 386.42 )
+texture = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -447.652
+margin_top = -553.51
+margin_right = -176.652
+margin_bottom = -209.51
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnReintentar" parent="VBoxContainer" instance=ExtResource( 4 )]
+margin_right = 271.0
+margin_bottom = 109.0
+text = "Reintentar"
+
+[node name="BtnMenuPrincipal" parent="VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 113.0
+margin_right = 271.0
+margin_bottom = 222.0
+text = "Menu Principal"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 226.0
+margin_right = 271.0
+margin_bottom = 230.0
+
+[node name="BtnSalir" type="Button" parent="VBoxContainer" instance=ExtResource( 5 )]
+margin_top = 234.0
+margin_right = 271.0
+margin_bottom = 344.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = SubResource( 3 )
+text = "Salir"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.737255, 0.443137, 0.878431, 1 )
+margin_left = 138.681
+margin_top = 79.0416
+margin_right = 549.681
+margin_bottom = 169.042
+custom_fonts/font = SubResource( 4 )
+text = "Game Over"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="VBoxContainer/BtnReintentar" to="." method="_on_BtnReintentar_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnMenuPrincipal" to="." method="_on_BtnMenuPrincipal_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnSalir" to="VBoxContainer/BtnSalir" method="_on_BtnSalir_pressed"]

@@ -1,0 +1,125 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Juego/menues/Botones/BtnSalir.gd" type="Script" id=1]
+[ext_resource path="res://Recursos/kenney_fontpackage/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Recursos/kenney_fontpackage/Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Recursos/kenney_fontpackage/Fonts/Kenney Mini Square Mono.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Juego/menues/Botones/BtnSalir.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Juego/menues/Botones/BtnMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Recursos/jumperpack_kenney/PNG/Players/bunny2_jump.png" type="Texture" id=7]
+[ext_resource path="res://Recursos/kenney_fontpackage/Fonts/Kenney Pixel Square.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Juego/menues/MenuVictoria.gd" type="Script" id=11]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.254902, 0.160784, 0.509804, 1 )
+border_width_bottom = 6
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0627451, 0.529412, 0.556863, 1 )
+border_width_bottom = 6
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0823529, 0.403922, 0.407843, 1 )
+border_width_bottom = 6
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.372549, 0.407843, 0.0823529, 1 )
+border_width_bottom = 6
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 60
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 45
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[node name="MenuVictoria" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.82843
+margin_top = -4.24261
+margin_right = -2.82837
+margin_bottom = -4.24261
+color = Color( 0.172549, 0.0431373, 0.192157, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 324.802, 336.023 )
+texture = ExtResource( 7 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -485.538
+margin_top = -477.184
+margin_right = -165.538
+margin_bottom = -264.184
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnMenuPrincipal" parent="VBoxContainer" instance=ExtResource( 6 )]
+margin_right = 320.0
+margin_bottom = 100.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+text = "Menu Principal"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 104.0
+margin_right = 320.0
+margin_bottom = 108.0
+
+[node name="BtnSalir" parent="VBoxContainer" instance=ExtResource( 5 )]
+margin_top = 112.0
+margin_right = 320.0
+margin_bottom = 213.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.737255, 0.443137, 0.878431, 1 )
+margin_left = 74.4251
+margin_top = 87.8611
+margin_right = 599.425
+margin_bottom = 177.861
+custom_fonts/font = SubResource( 7 )
+text = "¡¡¡ Ganaste !!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color( 0.737255, 0.443137, 0.878431, 1 )
+margin_left = 138.681
+margin_top = 537.653
+margin_right = 549.681
+margin_bottom = 627.653
+custom_fonts/font = SubResource( 8 )
+text = "Puntaje:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="VBoxContainer/BtnMenuPrincipal" to="." method="_on_BtnMenuPrincipal_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnSalir" to="VBoxContainer/BtnSalir" method="_on_BtnSalir_pressed"]
